@@ -44,17 +44,43 @@
 
 # условный оператор if
 
-echo "ВВедите ваш возраст"
+# echo "ВВедите ваш возраст"
 
-read age
+# read age
 
-if	[[ $age -ge 0 ]] && [[ $age -lt 18 ]]; then
-		echo "Вы еще ребенок"
-	elif [[ $age -ge 18 ]] && [[ $age -le 40 ]]; then
-		echo "Вы молодой человек"
-	else
-		echo "Ты старый гуифт"
-fi
+# if	[[ $age -ge 0 ]] && [[ $age -lt 18 ]]; then
+# 		echo "Вы еще ребенок"
+# 	elif [[ $age -ge 18 ]] && [[ $age -le 40 ]]; then
+# 		echo "Вы молодой человек"
+# 	else
+# 		echo "Ты старый гуифт"
+# fi
+
+
+# услованый оператолр case
+
+case переменная in
+	условие )
+	 	команда 1;;
+		команда 2;;
+	*)
+esac
+
+echo "Введите марку телефона"
+read brand
+
+case $brand in
+	Samsung )
+		echo "Скидка на телефоны $brand - 30 %";;
+	Huawei)
+		echo "Скидка на телефоны $brand - 10 %";;
+	Nokia)
+		echo "Скидка на телефоны $brand - 20 %";;
+	*)
+		echo "На этот вид товара скидки нету";;
+esac
+
+
 
 
 
