@@ -59,26 +59,63 @@
 
 # услованый оператолр case
 
-case переменная in
-	условие )
-	 	команда 1;;
-		команда 2;;
-	*)
-esac
+# case переменная in
+# 	условие )
+# 	 	команда 1;;
+# 		команда 2;;
+# 	*)
+# esac
 
-echo "Введите марку телефона"
-read brand
+# echo "Введите марку телефона"
+# read brand
 
-case $brand in
-	Samsung )
-		echo "Скидка на телефоны $brand - 30 %";;
-	Huawei)
-		echo "Скидка на телефоны $brand - 10 %";;
-	Nokia)
-		echo "Скидка на телефоны $brand - 20 %";;
-	*)
-		echo "На этот вид товара скидки нету";;
-esac
+# case $brand in
+
+# 	Samsung )
+# 		echo "Скидка на телефоны $brand - 30 %";;
+# 	Huawei)
+# 		echo "Скидка на телефоны $brand - 10 %";;
+# 	Nokia)
+# 		echo "Скидка на телефоны $brand - 20 %";;
+# 	*)
+# 		echo "На этот вид товара скидки нету";;
+
+# esac
+
+
+# вложенные условия 
+
+# echo "Введите марку телефона"
+# read brand
+# if [[ $brand == "samsung" ]] || [[ $brand == "nokia" ]] || [[ $brand == "huawei" ]] || [[ $brand == "iphone" ]]; then
+# 	case $brand in
+# 	    samsung)
+# 		    echo "Скидка на телефоны $brand - 30%";;
+# 	    nokia)
+# 		    echo "Скидка на телефоны $brand - 10%";;
+# 	    huawei)
+# 		    echo "Скидка на телефоны $brand - 20%";;
+# 	    *)
+# 		    echo "На этот вид товара скидок нет"
+#     esac
+# fi
+# #Решение при помощи вложенного if
+# echo "Введите марку телефона"
+# read brand
+# if [[ $brand == "samsung" ]] || [[ $brand == "nokia" ]] || [[ $brand == "huawei" ]] || [[ $brand == "iphone" ]]; then
+# 	if [[ $brand == "samsung" ]]; then
+# 		echo "Скидка на $brand - 30%"
+# 	elif [[ $brand == "nokia" ]]; then
+# 		echo "Скидка на $brand - 10%"
+# 	elif [[ $brand == "huawei" ]]; then
+# 		echo "Скидка на $brand - 20%"
+# 	else
+# 		echo "На данный вид товара скидок нет"
+# 	fi
+#  else echo "$brand - не марка телефона."
+# fi
+
+
 
 
 
