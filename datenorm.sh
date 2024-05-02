@@ -17,6 +17,32 @@ monthNumToName()
  return 0
  }
 
+checkMonth()
+{
+
+    lowered_input=$(echo $1 | tr '[:upper:]' '[:lower:]')
+    month_initial="$(echo $lowered_input | cut -c1 | tr '[:lower:]' '[:upper:]')"
+    remaining_month_letters="$(echo $lowered_input | cut -c2- | tr '[:upper:]' '[:lower:]')"
+    # Присвоить переменной 'month’ соответствующее значение.
+    case $lowered_input in
+        jan|january ) month="Jan" ;;
+        feb|february ) month="Feb" ;;
+        mar|march ) month="Mar" ;;
+        apr|april ) month="Apr" ;;
+        may ) month="May" ;;
+        jun|june ) month="Jun" ;;
+        jul|july ) month="Jul" ;;
+        aug|august ) month="Aug" ;;
+        sep|september ) month="Sep" ;;
+        oct|october ) month="Oct" ;;
+        nov|november ) month="Nov" ;;
+        dec|december ) month="Dec" ;;
+        * ) echo "$0: Unknown month value $1" >&2
+        exit 1
+    esac
+    return 0
+}
+
 
  if [ $# -ne 3 ] ; then # проверка что скрипту переданно именно 3 аргумента
     echo "Usage: $0 month day year" >&2
@@ -28,13 +54,18 @@ if [ $3 -le 999 ] ; then
     echo "$0: expected 4-digit year value." >&2
     exit 1
  fi
+ 
+ if [ $2 -ge 32 ] ; then
+    echo "$0: expected correct month date." >&2
+    exit 1
+ fi
 
  if [ -z $(echo $1 |sed 's/[[:digit:]]//g') ]; then # нихуя себе. Типа удаляются всё цифры и если строка пустая, то вводилост именно число
     monthNumToName $1
  else
-    month="$(echo $1|cut -c1|tr '[:lower:]' '[:upper:]')"
-    month="$month$(echo $1|cut -c2-3 | tr '[:upper:]' '[:lower:]')"
+    checkMonth $1
  fi
 
 echo $month $2 $3
 exit 0
+
